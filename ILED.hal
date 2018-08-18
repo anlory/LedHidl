@@ -1,0 +1,17 @@
+
+package android.hardware.led@1.0;
+
+interface ILed
+{
+	//get led status 
+	get() generates (LedStatus result);
+	
+	
+	//set led status 
+	set(LedStatus  val) generates(int32_t  ret);
+	
+	on() ;
+	
+	off() ;
+
+};
