@@ -1,0 +1,18 @@
+
+cc_binary {
+    relative_install_path: "hw",
+    defaults: ["hidl_defaults"],
+    name: "led_client",
+    proprietary: true,
+    srcs: ["led_client.cpp"],
+
+    shared_libs: [
+        "liblog",
+        "libhardware",
+        "libhidlbase",
+        "libhidltransport",
+        "libutils",
+        "android.hardware.led@1.0",
+    ],
+
+}

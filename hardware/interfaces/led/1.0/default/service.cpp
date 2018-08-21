@@ -1,0 +1,29 @@
+#define LOG_TAG "android.hardware.led@1.0-service"
+
+#include <android/hardware/ir/1.0/ILed.h>
+#include <hidl/LegacySupport.h>
+
+using android::hardware::led::V1_0::ILed;
+using android::hardware::defaultPassthroughServiceImplementation;
+using android::hardware::configureRpcThreadpool;
+using android::hardware::joinRpcThreadpool;
+using android::sp;
+using android::hardware::led::V1_0::implementation::ledImpl;
+
+int main() {
+#if 0 
+// Passthrough   dlopen so方式
+    return defaultPassthroughServiceImplementation<Iled>(); 
+#else
+// Binder 方式
+	sp<ILed> service = new ledImpl();
+	configureRpcThreadpool(1, true /*callerWillJoin*/);
+    service->registerAsService();
+    joinRpcThreadpool();
+#endif
+}
+
+
+
+
+
