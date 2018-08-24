@@ -5,4 +5,4 @@ enum LedStatus : uint32_t {
 	LED_ON,
 	LED_OFF,
 	BAD_VALUE,
-}
+};

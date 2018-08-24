@@ -1,4 +1,3 @@
-
 #ifndef ANDROID_HARDWARE_LED_V1_0_LED_H
 #define ANDROID_HARDWARE_LED_V1_0_LED_H
 #include <android/hardware/led/1.0/ILed.h>
@@ -26,22 +25,22 @@ using ::android::hardware::Void;
 using ::android::sp;
 	
 	
-	struct ledImpl : public ILed {
-		public:
-			ledImpl();
-			Return<LedStatus>  get() override ;
-			Return<int32_t> set(LedStatus val) override;
-			Return<void> on() override;
-			Return<void> off() override;
-		private:
-			int32_t status;
-	}
+struct ledImpl : public ILed {
+	public:
+		ledImpl();
+		Return<LedStatus>  get() override ;
+		Return<int32_t> set(LedStatus val) override;
+		Return<void> on() override;
+		Return<void> off() override;
+	private:
+		LedStatus state;
+};
 	
-	extern "C" ILed* HIDL_FETCH_ILed(const char* name);
+extern "C" ILed* HIDL_FETCH_ILed(const char* name);
 }  // namespace implementation
 }  // namespace V1_0
 }  // namespace led
 }  // namespace hardware
 }  // namespace android
 
-#endif ANDROID_HARDWARE_LED_V1_0_LED_H
+#endif //ANDROID_HARDWARE_LED_V1_0_LED_H

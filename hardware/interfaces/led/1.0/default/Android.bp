@@ -1,8 +1,6 @@
 cc_library_shared {
     name: "android.hardware.led@1.0-impl",
     defaults: ["hidl_defaults"],
-    relative_install_path: "hw",
-    proprietary: true,
     srcs: ["ledImpl.cpp"],
     shared_libs: [
         "libhidlbase",
@@ -15,13 +13,10 @@ cc_library_shared {
 }
 
 cc_binary {
-    relative_install_path: "hw",
-    defaults: ["hidl_defaults"],
     name: "android.hardware.led@1.0-service",
-    proprietary: true,
     init_rc: ["android.hardware.led@1.0-service.rc"],
     srcs: ["service.cpp",
-			ledImpl.cpp],
+			"ledImpl.cpp"],
 
     shared_libs: [
         "liblog",
