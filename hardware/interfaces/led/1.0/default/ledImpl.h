@@ -16,6 +16,7 @@ namespace V1_0 {
 namespace implementation {
 
 using ::android::hardware::led::V1_0::LedStatus;
+using ::android::hardware::led::V1_0::BrightnessRange;
 using ::android::hardware::led::V1_0::ILed;
 using ::android::hardware::hidl_array;
 using ::android::hardware::hidl_string;
@@ -32,6 +33,8 @@ struct ledImpl : public ILed {
 		Return<int32_t> set(LedStatus val) override;
 		Return<void> on() override;
 		Return<void> off() override;
+		Return<void> getBrightnessRange(getBrightnessRange_cb _hidl_cb) override;
+		Return<bool> getBrightnessValue(const hidl_vec<int32_t>& range) override;
 	private:
 		LedStatus state;
 };

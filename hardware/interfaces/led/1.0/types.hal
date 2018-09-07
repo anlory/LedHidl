@@ -6,3 +6,10 @@ enum LedStatus : uint32_t {
 	LED_OFF,
 	BAD_VALUE,
 };
+
+
+struct BrightnessRange {
+    uint32_t min;
+ 
+    uint32_t max;
+};
