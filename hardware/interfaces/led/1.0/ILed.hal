@@ -12,7 +12,7 @@ interface ILed
   
   getBrightnessRange() generates(bool ret,BrightnessRange range);
   
-  getBrightnessValue(vec<int32_t> range) generates(bool ret);
+  setBrightnessValue(vec<int32_t> range) generates(bool ret);
   
   on() ;
   

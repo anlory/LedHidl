@@ -34,7 +34,7 @@ struct ledImpl : public ILed {
 		Return<void> on() override;
 		Return<void> off() override;
 		Return<void> getBrightnessRange(getBrightnessRange_cb _hidl_cb) override;
-		Return<bool> getBrightnessValue(const hidl_vec<int32_t>& range) override;
+		Return<bool> setBrightnessValue(const hidl_vec<int32_t>& range) override;
 	private:
 		LedStatus state;
 };

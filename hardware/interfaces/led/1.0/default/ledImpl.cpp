@@ -48,7 +48,7 @@ Return<void> ledImpl::getBrightnessRange(getBrightnessRange_cb _hidl_cb)
 	
 }
   
-Return<bool> ledImpl::getBrightnessValue(const hidl_vec<int32_t>& range)
+Return<bool> ledImpl::setBrightnessValue(const hidl_vec<int32_t>& range)
 {
 	ALOGE("ledImpl getBrightnessValue ");
 	auto iter = range.begin();

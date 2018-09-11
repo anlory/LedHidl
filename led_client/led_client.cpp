@@ -37,7 +37,7 @@ int main(){
 	});
 	int32_t array[] = {5, 6, 7};
 	hidl_vec<int32_t> hv1 = std::vector<int32_t>(array, array + 3);
-	bool ret2 = service->getBrightnessValue(hv1);
+	bool ret2 = service->setBrightnessValue(hv1);
 	ALOGE("ILed getBrightnessValue bool: %d",ret2);
 	return 0;
 }
