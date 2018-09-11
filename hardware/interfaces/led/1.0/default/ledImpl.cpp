@@ -10,7 +10,7 @@ namespace V1_0 {
 namespace implementation {
 
 ledImpl::ledImpl() {
-	state = LedStatus::BAD_VALUE;
+	state = LedStatus::LED_BAD_VALUE;
 	ALOGE("ledImpl Init status:%d", state);
 }
 
@@ -30,7 +30,10 @@ Return<LedStatus>  ledImpl::get() {
 	return state;
 }
 Return<int32_t> ledImpl::set(LedStatus val) {
-	state = val;
+	if(val == LedStatus::LED_OFF || val == LedStatus::LED_ON)
+		state = val;
+	else
+		return -1;
 	return 0;
 }
 
