@@ -1,11 +1,11 @@
 hidl demo
-1. ÒÔ¿ØÖÆLEDÎªÀı½øĞĞdemoµÄ±àĞ´
-1.1 ±àĞ´led.hal ºÍtypes.hal
-1.2 Ö´ĞĞupdate-makefiles.sh ±àÒëÎÄ¼ş
-	ĞÂ½¨defalutÎÄ¼ş¼Ğ
+1. ä»¥æ§åˆ¶LEDä¸ºä¾‹è¿›è¡Œdemoçš„ç¼–å†™
+1.1 ç¼–å†™led.hal å’Œtypes.hal
+1.2 æ‰§è¡Œupdate-makefiles.sh ç¼–è¯‘æ–‡ä»¶
+	æ–°å»ºdefalutæ–‡ä»¶å¤¹
 	
-1.3 ÊµÏÖandroid.hardware.led@1.0-implºÍandroid.hardware.led@1.0-service
-	±àĞ´android.bp
+1.3 å®ç°android.hardware.led@1.0-implå’Œandroid.hardware.led@1.0-service
+	ç¼–å†™android.bp
 		cc_library_shared {
 			name: "android.hardware.led@1.0-impl",
 			defaults: ["hidl_defaults"],
@@ -41,14 +41,14 @@ hidl demo
 
 		}
 	
-		½ÓÏÂÀ´£¬Ê¹ÓÃÏàÓ¦¹¦ÄÜÌîĞ´´æ¸ù²¢ÉèÖÃÊØ»¤½ø³Ì¡£ÊØ»¤½ø³Ì´úÂë£¨Ö§³ÖÖ±Í¨£©Ê¾Àı£º
+		æ¥ä¸‹æ¥ï¼Œä½¿ç”¨ç›¸åº”åŠŸèƒ½å¡«å†™å­˜æ ¹å¹¶è®¾ç½®å®ˆæŠ¤è¿›ç¨‹ã€‚å®ˆæŠ¤è¿›ç¨‹ä»£ç ï¼ˆæ”¯æŒç›´é€šï¼‰ç¤ºä¾‹ï¼š
 
 		#include <hidl/LegacySupport.h>
 
 		int main(int /* argc */, char* /* argv */ []) {
 			return defaultPassthroughServiceImplementation<INfc>("nfc");
 		}
-		defaultPassthroughServiceImplementation ½«¶ÔÌá¹©µÄ -impl ¿âÖ´ĞĞ dlopen() ²Ù×÷£¬²¢½«Æä×÷Îª°ó¶¨Ê½·şÎñÌá¹©¡£ÊØ»¤½ø³Ì´úÂë£¨¶ÔÓÚ´¿°ó¶¨Ê½·şÎñ£©Ê¾Àı£º
+		defaultPassthroughServiceImplementation å°†å¯¹æä¾›çš„ -impl åº“æ‰§è¡Œ dlopen() æ“ä½œï¼Œå¹¶å°†å…¶ä½œä¸ºç»‘å®šå¼æœåŠ¡æä¾›ã€‚å®ˆæŠ¤è¿›ç¨‹ä»£ç ï¼ˆå¯¹äºçº¯ç»‘å®šå¼æœåŠ¡ï¼‰ç¤ºä¾‹ï¼š
 
 		int main(int /* argc */, char* /* argv */ []) {
 			sp nfc = new Nfc();
@@ -60,7 +60,7 @@ hidl demo
 		}
 
 		
-		add the code to the manifest.xm ÒÔÖÁÓÚhwservicemanager ²éÕÒµ½Ö¸¶¨µÄhidl service
+		add the code to the manifest.xm ä»¥è‡³äºhwservicemanager æŸ¥æ‰¾åˆ°æŒ‡å®šçš„hidl service
 			About HIDL configures
 			device/linaro/hikey/manifest.xml
 			<hal format="hidl">
@@ -74,38 +74,38 @@ hidl demo
 			</hal>
 		
 		
-2. ÊµÏÖjavaµ÷ÓÃhidl serviceµÄÀı×Ó
-	2.1 Ìí¼Ó¿â£º
-		½«ÒÔÏÂÄÚÈİÌí¼Óµ½ Android.mk ÖĞ£º
+2. å®ç°javaè°ƒç”¨hidl serviceçš„ä¾‹å­
+	2.1 æ·»åŠ åº“ï¼š
+		å°†ä»¥ä¸‹å†…å®¹æ·»åŠ åˆ° Android.mk ä¸­ï¼š
 		LOCAL_JAVA_LIBRARIES += android.hardware.foo-V1.0-java
-		»ò
-		½«ÒÔÏÂÄÚÈİÌí¼Óµ½ Android.bp ÖĞ£º
+		æˆ–
+		å°†ä»¥ä¸‹å†…å®¹æ·»åŠ åˆ° Android.bp ä¸­ï¼š
 		shared_libs: [
-			/* ¡­ */
+			/* â€¦ */
 			"android.hardware.foo-V1.0-java",
 		],
-		¸Ã¿â»¹´æÔÚ¾²Ì¬°æ£ºandroid.hardware.foo-V1.0-java-static¡£
-	2.2 ½«ÒÔÏÂÄÚÈİÌí¼Óµ½ÄúµÄ Java ÎÄ¼şÖĞ£º
+		è¯¥åº“è¿˜å­˜åœ¨é™æ€ç‰ˆï¼šandroid.hardware.foo-V1.0-java-staticã€‚
+	2.2 å°†ä»¥ä¸‹å†…å®¹æ·»åŠ åˆ°æ‚¨çš„ Java æ–‡ä»¶ä¸­ï¼š
 		import android.hardware.foo.V1_0.IFoo;
 		...
 		// retry to wait until the service starts up if it is in the manifest
 		IFoo server = IFoo.getService(true /* retry */); // throws NoSuchElementException if not available
 		IFoo anotherServer = IFoo.getService("second_impl", true /* retry */);
-		server.doSomething(¡­);
+		server.doSomething(â€¦);
 		
 
-3. ÊµÏÖC++ µ÷ÓÃhidl serviceµÄÀı×Ó
-	Ê×ÏÈ½« HAL ¿âÌí¼Óµ½ makefile ÖĞ£º
-		Make£ºLOCAL_SHARED_LIBRARIES += android.hardware.nfc@1.0
-		Soong£ºshared_libs: [ ¡­, android.hardware.nfc@1.0 ]
-	½ÓÏÂÀ´£¬Ìí¼Ó HAL Í·ÎÄ¼ş£º
+3. å®ç°C++ è°ƒç”¨hidl serviceçš„ä¾‹å­
+	é¦–å…ˆå°† HAL åº“æ·»åŠ åˆ° makefile ä¸­ï¼š
+		Makeï¼šLOCAL_SHARED_LIBRARIES += android.hardware.nfc@1.0
+		Soongï¼šshared_libs: [ â€¦, android.hardware.nfc@1.0 ]
+	æ¥ä¸‹æ¥ï¼Œæ·»åŠ  HAL å¤´æ–‡ä»¶ï¼š
 		#include <android/hardware/nfc/1.0/IFoo.h>
-		¡­
+		â€¦
 		// in code:
 		sp<IFoo> client = IFoo::getService();
 		client->doThing();
 
 
-4. ±àĞ´LEDÇı¶¯
+4. ç¼–å†™LEDé©±åŠ¨
 
 
